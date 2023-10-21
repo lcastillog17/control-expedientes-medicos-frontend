@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registros</title>
+  </head>
+  <body>
+    <nav id="navigation-menu" class="navigation-menu">
+      <ul>
+          <li><a href="../index.html">Menú Principal</a></li>
+          <li><a href="./record-form.html">Crear Registro</a></li>
+          <li><a href="./records-list.html">Ver Registros</a></li>
+      </ul>
+      <div id="logout-link" class="logout-link">
+          <a href="#" id="logout-button">Cerrar sesión</a>
+      </div>
+    </nav>
+
+    <h1>Registros</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID de Paciente</th>
+          <th>Primer Nombre</th>
+          <th>Apellido</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="record-list">
+        <!-- Aquí se llenarán dinámicamente los registros -->
+      </tbody>
+    </table>
+
+    <script src="../scripts/recordsList.js"></script>
+  </body>
+</html>

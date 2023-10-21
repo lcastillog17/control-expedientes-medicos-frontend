@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Registro</title>
+  </head>
+  <body>
+    <nav id="navigation-menu" class="navigation-menu">
+      <ul>
+          <li><a href="../index.html">Menú Principal</a></li>
+          <li><a href="./record-form.html">Crear Registro</a></li>
+          <li><a href="./records-list.html">Ver Registros</a></li>
+      </ul>
+      <div id="logout-link" class="logout-link">
+          <a href="#" id="logout-button">Cerrar sesión</a>
+      </div>
+    </nav>
+  
+    <h1>Editar Registro</h1>
+    <form id="record-form">
+      <input type="text" name="id" id="id" hidden />
+
+      <label for="patientId">ID del Paciente:</label>
+      <input type="text" id="patientId" required />
+
+      <label for="firstName">Nombre:</label>
+      <input type="text" id="firstName" required />
+
+      <label for="lastName">Apellido:</label>
+      <input type="text" id="lastName" required />
+
+      <label for="dateOfBirth">Fecha de Nacimiento:</label>
+      <input type="date" id="dateOfBirth" required />
+
+      <label for="gender">Género:</label>
+      <input type="text" id="gender" required />
+
+      <label for="street">Calle:</label>
+      <input type="text" id="street" />
+
+      <label for="city">Ciudad:</label>
+      <input type="text" id="city" />
+
+      <label for="state">Estado:</label>
+      <input type="text" id="state" />
+
+      <label for="postalCode">Código Postal:</label>
+      <input type="text" id="postalCode" />
+
+      <label for="priorConditions"
+        >Condiciones Previas (separadas por comas):</label
+      >
+      <input type="text" id="priorConditions" />
+
+      <label for="allergies">Alergias (separadas por comas):</label>
+      <input type="text" id="allergies" />
+
+      <label for="currentMedications"
+        >Medicamentos Actuales (separados por comas):</label
+      >
+      <input type="text" id="currentMedications" />
+
+      <button type="submit">Guardar Registro</button>
+    </form>
+
+    <script src="../scripts/recordForm.js"></script>
+  </body>
+</html>
