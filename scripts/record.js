@@ -41,24 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
           // Genera la estructura HTML para mostrar la información completa del registro.
           const recordHTML = `
           <h2>${record.firstName} ${record.lastName}</h2>
-          <p>ID del Paciente: ${record.patientId}</p>
-          <p>Fecha de Nacimiento: ${new Date(
-            record.dateOfBirth
-          ).toLocaleDateString()}</p>
-          <p>Género: ${record.gender}</p>
-          <p>Dirección: ${record.address.street}, ${record.address.city}, ${
-            record.address.state
-          }, ${record.address.postalCode}</p>
+          <p><span class="record-field-label">ID del Paciente:</span> ${record.patientId}</p>
+          <p><span class="record-field-label">Fecha de Nacimiento:</span> ${new Date(record.dateOfBirth).toLocaleDateString()}</p>
+          <p><span class="record-field-label">Género:</span> ${record.gender}</p>
+          <p><span class="record-field-label">Dirección:</span> ${record.address.street}, ${record.address.city}, ${record.address.state}, ${record.address.postalCode}</p>
           <h3>Historial Médico</h3>
-          <p>Condiciones Previas: ${
-            record.medicalHistory.priorConditions.join(", ") || "N/A"
-          }</p>
-          <p>Alergias: ${
-            record.medicalHistory.allergies.join(", ") || "N/A"
-          }</p>
-          <p>Medicamentos Actuales: ${
-            record.medicalHistory.currentMedications.join(", ") || "N/A"
-          }</p>
+          <p><span class="record-field-label">Condiciones Previas:</span> ${record.medicalHistory.priorConditions.join(", ") || "N/A"}</p>
+          <p><span class="record-field-label">Alergias:</span> ${record.medicalHistory.allergies.join(", ") || "N/A"}</p>
+          <p><span class="record-field-label">Medicamentos Actuales:</span> ${record.medicalHistory.currentMedications.join(", ") || "N/A"}</p>
       `;
           recordDetails.innerHTML = recordHTML;
         })

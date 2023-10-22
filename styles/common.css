@@ -226,3 +226,24 @@ td:last-child {
 .simple-link:hover {
   color: #0056b3;
 }
+
+#record-details {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: left;
+}
+
+#record-details p {
+  text-align: left;
+  background-color: #dfdfdf;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.record-field-label {
+  color: #000000;
+  font-weight: bold;
+  margin-top: 10px;
+}
