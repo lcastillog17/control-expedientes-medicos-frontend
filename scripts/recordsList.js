@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   <td>${record.firstName}</td>
                   <td>${record.lastName}</td>
                   <td>
-                      <button onclick="deleteRecord('${record._id}')">Eliminar</button>
-                      <button onclick="modifyRecord('${record._id}')">Modificar</button>
-                      <button onclick="viewRecord('${record._id}')">Ver</button>
+                      <button class="action-link" onclick="deleteRecord('${record._id}')">Eliminar</button>
+                      <button class="action-link" onclick="modifyRecord('${record._id}')">Modificar</button>
+                      <button class="action-link" onclick="viewRecord('${record._id}')">Ver</button>
                   </td>
               `;
           recordList.appendChild(row);

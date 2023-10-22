@@ -3,66 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/common.css">
     <title>Editar Registro</title>
   </head>
   <body>
     <nav id="navigation-menu" class="navigation-menu">
-      <ul>
-          <li><a href="../index.html">Menú Principal</a></li>
-          <li><a href="./record-form.html">Crear Registro</a></li>
-          <li><a href="./records-list.html">Ver Registros</a></li>
-      </ul>
       <div id="logout-link" class="logout-link">
-          <a href="#" id="logout-button">Cerrar sesión</a>
+        <a href="#" id="logout-button">Cerrar sesión</a>
       </div>
+      <ul>
+        <li><a href="../index.html">Menú Principal</a></li>
+        <li><a href="./record-form.html">Crear Registro</a></li>
+        <li><a href="./records-list.html">Ver Registros</a></li>
+      </ul>
     </nav>
-  
-    <h1>Editar Registro</h1>
-    <form id="record-form">
-      <input type="text" name="id" id="id" hidden />
 
-      <label for="patientId">ID del Paciente:</label>
-      <input type="text" id="patientId" required />
+    <div class="container">
+      <h1>Registro</h1>
+      <form id="record-form">
+        <input type="text" name="id" id="id" hidden />
 
-      <label for="firstName">Nombre:</label>
-      <input type="text" id="firstName" required />
+        <label for="patientId">ID del Paciente:</label>
+        <input type="text" id="patientId" required /><br><br>
 
-      <label for="lastName">Apellido:</label>
-      <input type="text" id="lastName" required />
+        <label for="firstName">Nombre:</label>
+        <input type="text" id="firstName" required /><br><br>
 
-      <label for="dateOfBirth">Fecha de Nacimiento:</label>
-      <input type="date" id="dateOfBirth" required />
+        <label for="lastName">Apellido:</label>
+        <input type="text" id="lastName" required /><br><br>
 
-      <label for="gender">Género:</label>
-      <input type="text" id="gender" required />
+        <label for="dateOfBirth">Fecha de Nacimiento:</label>
+        <input type="date" id="dateOfBirth" required /><br><br>
 
-      <label for="street">Calle:</label>
-      <input type="text" id="street" />
+        <label for="gender">Género:</label>
+        <input type="text" id="gender" required /><br><br>
 
-      <label for="city">Ciudad:</label>
-      <input type="text" id="city" />
+        <label for="street">Calle:</label>
+        <input type="text" id="street" /><br><br>
 
-      <label for="state">Estado:</label>
-      <input type="text" id="state" />
+        <label for="city">Ciudad:</label>
+        <input type="text" id="city" /><br><br>
 
-      <label for="postalCode">Código Postal:</label>
-      <input type="text" id="postalCode" />
+        <label for="state">Estado:</label>
+        <input type="text" id="state" /><br><br>
 
-      <label for="priorConditions"
-        >Condiciones Previas (separadas por comas):</label
-      >
-      <input type="text" id="priorConditions" />
+        <label for="postalCode">Código Postal:</label>
+        <input type="text" id="postalCode" /><br><br>
 
-      <label for="allergies">Alergias (separadas por comas):</label>
-      <input type="text" id="allergies" />
+        <label for="priorConditions"
+          >Condiciones Previas (separadas por comas):</label
+        >
+        <input type="text" id="priorConditions" /><br><br>
 
-      <label for="currentMedications"
-        >Medicamentos Actuales (separados por comas):</label
-      >
-      <input type="text" id="currentMedications" />
+        <label for="allergies">Alergias (separadas por comas):</label>
+        <input type="text" id="allergies" /><br><br>
 
-      <button type="submit">Guardar Registro</button>
-    </form>
+        <label for="currentMedications"
+          >Medicamentos Actuales (separados por comas):</label
+        >
+        <input type="text" id="currentMedications" /><br><br>
+
+        <button type="submit">Guardar Registro</button>
+      </form>
+    </div>
 
     <script src="../scripts/recordForm.js"></script>
   </body>
