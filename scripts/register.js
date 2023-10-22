@@ -1,5 +1,13 @@
 const API_URL = "http://localhost:3000/api/v1";
 
+const recordError = () => {
+  alert("Error al obtener detalles del registro.");
+};
+
+const userCreationSuccess = () => {
+  alert("Usuario creado exitosamente.");
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("token");
   if (token) {
@@ -7,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const registrationForm = document.getElementById("registration-form");
-  const registrationStatus = document.getElementById("registration-status");
 
   registrationForm.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -31,13 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.removeItem("recordId");
       });
       if (response.ok) {
-        alert("Usuario creado exitosamente.");
         window.location.href = "../pages/login.html";
+        userCreationSuccess();
       } else {
-        alert("Error en la solicitud de registro.");
+        recordError();
       }
     } catch (error) {
-      alert("Error en la solicitud de registro.");
+      recordError();
     }
   });
 });

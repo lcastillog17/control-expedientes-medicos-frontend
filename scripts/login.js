@@ -1,5 +1,9 @@
 const API_URL = "http://localhost:3000/api/v1";
 
+const wrondCredentials = () => {
+  alert("Credenciales incorrectas.");
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("token");
   if (token) {
@@ -7,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const loginForm = document.getElementById("login-form");
-  const loginStatus = document.getElementById("login-status");
 
   loginForm.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -31,8 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
           localStorage.setItem("token", data.token);
           window.location.href = "../index.html";
         } else {
-          loginStatus.innerText =
-            "Credenciales incorrectas. Inténtalo de nuevo.";
+          wrondCredentials();
         }
       })
       .finally(() => {

@@ -1,5 +1,14 @@
 const API_URL = "http://localhost:3000/api/v1";
 
+const sessionNotFound = () => {
+  alert("No se ha iniciado sesión.");
+  return;
+};
+
+const recordError = () => {
+  alert("Error al obtener detalles del registro.");
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   const logoutButton = document.getElementById("logout-button");
   logoutButton.addEventListener("click", function (e) {
@@ -10,42 +19,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const token = localStorage.getItem("token");
   if (!token) {
-    window.location.href = "./pages/login.html";
-    alert("No se ha iniciado sesión.");
-  }
+    window.location.href = "./login.html";
+    sessionNotFound();
+  } else {
+    const recordList = document.getElementById("record-list");
 
-  const recordList = document.getElementById("record-list");
-
-  // Realizar una solicitud al servidor para obtener la lista de registros.
-  fetch(`${API_URL}/patientRecords`, {
-    method: "GET",
-    headers: {
-      Authorization: token,
-    },
-  })
-    .then((response) => response.json())
-    .then((records) => {
-      records.forEach((record) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-                <td>${record.patientId}</td>
-                <td>${record.firstName}</td>
-                <td>${record.lastName}</td>
-                <td>
-                    <button onclick="deleteRecord('${record._id}')">Eliminar</button>
-                    <button onclick="modifyRecord('${record._id}')">Modificar</button>
-                    <button onclick="viewRecord('${record._id}')">Ver</button>
-                </td>
-            `;
-        recordList.appendChild(row);
-      });
+    // Realizar una solicitud al servidor para obtener la lista de registros.
+    fetch(`${API_URL}/patientRecords`, {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
     })
-    .catch((error) =>
-      console.error("Error al obtener la lista de registros:", error)
-    )
-    .finally(() => {
-      localStorage.removeItem("recordId");
-    });
+      .then((response) => response.json())
+      .then((records) => {
+        records.forEach((record) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+                  <td>${record.patientId}</td>
+                  <td>${record.firstName}</td>
+                  <td>${record.lastName}</td>
+                  <td>
+                      <button onclick="deleteRecord('${record._id}')">Eliminar</button>
+                      <button onclick="modifyRecord('${record._id}')">Modificar</button>
+                      <button onclick="viewRecord('${record._id}')">Ver</button>
+                  </td>
+              `;
+          recordList.appendChild(row);
+        });
+      })
+      .catch((error) => {
+        recordError();
+      })
+      .finally(() => {
+        localStorage.removeItem("recordId");
+      });
+  }
 });
 
 function deleteRecord(recordId) {
@@ -61,12 +70,11 @@ function deleteRecord(recordId) {
         if (data.mensaje) {
           window.location.reload();
         } else {
-          alert("Error al eliminar el registro.");
+          recordError();
         }
       })
       .catch((error) => {
-        console.error("Error al eliminar el registro:", error);
-        alert("Error al eliminar el registro.");
+        recordError();
       });
   }
 }
